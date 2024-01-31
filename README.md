@@ -6,17 +6,17 @@ The Banking System is a Java-based application designed to manage bank accounts,
 
 ### Object-Oriented Features
 
-##### Classes & Objects
+#### Classes & Objects
 
 * **Account:** Represents a basic bank account with attributes like accountNumber, accountHolder, and balance, along with methods for deposit and withdrawal.
 * **SavingsAccount:** Subclass of Account, adding an interestRate attribute and overriding the withdraw method to include penalties for exceeding the account balance.
 * **Main:** The main class where the banking system is initiated and user interactions are managed.
 
-##### Inheritance
+#### Inheritance
 
 The '**SavingsAccount'** class inherits from the '**Account'** class, sharing a common interface for deposits and withdrawal operations
 
-##### Polymorphism
+#### Polymorphism
 
 In our banking system, we demonstrate polymorphism through the usage of inheritance, method overriding and casting:
 
@@ -31,7 +31,7 @@ if (saveAccount instanceof SavingsAccount) {
                     }
 ```
 
-##### Encapsulation
+#### Encapsulation
 
 We use public **toString** method in **'Account'** class, so that the private attribute inside such as **accountNumber** and **accountHolder** can be access by other class.
 
