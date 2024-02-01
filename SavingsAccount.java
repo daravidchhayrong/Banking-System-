@@ -14,7 +14,7 @@ class SavingsAccount extends Account{
     public void calculateInterest() {
         double interest = this.getBalance() * this.interestRate;
         this.deposit(interest);
-        System.out.println("Interest $" + interest * this.getBalance() + ". New balance: $" + this.getBalance());
+        System.out.println("Interest $" + interest + ". New balance: $" + this.getBalance());
     }   
 
     // Override withdraw method to include penalty for insufficient funds

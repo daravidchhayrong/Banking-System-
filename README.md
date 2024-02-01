@@ -33,10 +33,28 @@ if (saveAccount instanceof SavingsAccount) {
 
 #### Encapsulation
 
-We use public **toString** method in **'Account'** class, so that the private attribute inside such as **accountNumber** and **accountHolder** can be access by other class.
+We use public **toString** method in **'Account'** class, so that the private attribute inside such as **accountNumber** and **accountHolder** and **Balance** can be access by other class.
 
 ```
 public String toString() {
         return "Account Number: " + this.accountNumber + "\nAccount Holder: " + this.accountHolder + "\nBalance: $" + this.balance;
     }
+```
+
+Additionally we also use **getBalance()** method in **Account** class
+
+```
+public double getBalance(){
+	return this.balance;
+}
+```
+
+so that the **SavingsAccount** class can use the **balance** attribute which is a private attribute to do calculation in some other methods like **calculateInterest():**
+
+```
+public void calculateInterest() {
+        double interest = this.getBalance() * this.interestRate;
+        this.deposit(interest);
+        System.out.println("Interest $" + interest + ". New balance: $" + this.getBalance());
+    } 
 ```

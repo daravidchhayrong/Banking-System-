@@ -46,7 +46,7 @@ public class Main {
             System.out.print("Please enter the account holder name: ");
             name = sc.nextLine();
             System.out.println("Your Saving account interest rate is 5%");
-            Account saveAccount = new SavingsAccount(acNumber + 1, name, 0, 0.5);
+            Account saveAccount = new SavingsAccount(acNumber + 1, name, 0, 0.05);
             System.out.println(saveAccount.toString());
             int acChoice;
             do {

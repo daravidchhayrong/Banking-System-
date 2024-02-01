@@ -13,7 +13,7 @@ class Account {
     }
 
     public double getBalance(){
-        return balance;
+        return this.balance;
     }
 
     // Method to deposit funds into the account
