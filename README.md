@@ -18,7 +18,7 @@ The '**SavingsAccount'** class inherits from the '**Account'** class, sharing a 
 
 #### Polymorphism
 
-In our banking system, we demonstrate polymorphism through the usage of inheritance, method overriding and casting:
+In our banking system, we demonstrate polymorphism through the usage of inheritance and method overriding:
 
 * **Method Overriding:** We override the **withdraw** method in the **SavingsAccount** class to implement specific behavior for savings accounts, such as applying penalties for over withdrawal accounts.
 
