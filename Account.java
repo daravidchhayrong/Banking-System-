@@ -3,17 +3,13 @@ class Account {
     // Private attributes
     private int accountNumber;
     private String accountHolder;
-    private double balance; // Protected so that subclasses can access it
+    protected double balance; // Protected so that subclasses can access it
 
     // Constructor to initialize account details
     public Account(int accountNumber, String accountHolder, double balance) {
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.balance = balance;
-    }
-
-    public double getBalance(){
-        return this.balance;
     }
 
     // Method to deposit funds into the account

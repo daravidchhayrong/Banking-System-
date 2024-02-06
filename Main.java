@@ -46,7 +46,7 @@ public class Main {
             System.out.print("Please enter the account holder name: ");
             name = sc.nextLine();
             System.out.println("Your Saving account interest rate is 5%");
-            Account saveAccount = new SavingsAccount(acNumber + 1, name, 0, 0.05);
+            SavingsAccount saveAccount = new SavingsAccount(acNumber + 1, name, 0, 0.05);
             System.out.println(saveAccount.toString());
             int acChoice;
             do {
@@ -65,11 +65,7 @@ public class Main {
                     withdraw = sc.nextDouble();
                     saveAccount.withdraw(withdraw);
                 } else if (acChoice == 3) {
-                    //Cast SavingsAccount object back to SavingsAccount
-                    if (saveAccount instanceof SavingsAccount) {
-                        SavingsAccount savingsAccount = (SavingsAccount) saveAccount;
-                        savingsAccount.calculateInterest();
-                    }
+                    saveAccount.calculateInterest();
                 }else if (acChoice == 4) {
                     System.out.println(saveAccount.toString());
                 }

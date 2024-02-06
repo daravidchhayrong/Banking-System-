@@ -21,40 +21,38 @@ The '**SavingsAccount'** class inherits from the '**Account'** class, sharing a 
 In our banking system, we demonstrate polymorphism through the usage of inheritance, method overriding and casting:
 
 * **Method Overriding:** We override the **withdraw** method in the **SavingsAccount** class to implement specific behavior for savings accounts, such as applying penalties for over withdrawal accounts.
-* **Casting:** We first we create the saveAccount as the **Account** first since before becoming '**SavingsAccount'** it first is the account and after that we will cast them back to '**SavingsAccount'** class and invoke the '**calculateInterest'** method specific to savings account.
 
-```
-Account saveAccount = new SavingsAccount(acNumber + 1, name, 0, 5);
-if (saveAccount instanceof SavingsAccount) {
-                        SavingsAccount savingsAccount = (SavingsAccount) saveAccount;
-                        savingsAccount.calculateInterest();
-                    }
-```
+  ```
+  @Override
+      public void withdraw(double withdrawAmount) {
+          if (withdrawAmount > 0 && withdrawAmount <= this.balance) {
+              this.balance -= withdrawAmount;
+              System.out.println("Withdrew $" + withdrawAmount + ". New balance: $" + this.balance);
+          } else {
+              System.out.println("Insufficient funds for withdrawal.");
+              this.balance -= 0.7;// Apply penalty
+              System.out.println("Penalty charged. New balance: $" + this.balance);
+          }
+      }
+  ```
 
 #### Encapsulation
 
-We use public **toString** method in **'Account'** class, so that the private attribute inside such as **accountNumber** and **accountHolder** and **Balance** can be access by other class.
+* **Private Attribute:** accountNumber, accountHolder, interestRate. We use these attributes as private because we don't want other account and also subclass to directly access or modify it.
+* **Protected Attribute:** balance. We use this attribute as protected because we need to use this attribute in subclasss '**SavingsAccount**' to calculate calculateInterest() method.
+
+  ```
+  public void calculateInterest() {
+          double interest = this.interestRate / 100;
+          this.balance += interest;
+          System.out.println("Interest $" + interest + ". New balance: $" + this.balance);
+      }
+  ```
+
+We use public **toString** method in **'Account'** class, so that the private attribute inside such as **accountNumber** and **accountHolder** can be access by other class.
 
 ```
 public String toString() {
         return "Account Number: " + this.accountNumber + "\nAccount Holder: " + this.accountHolder + "\nBalance: $" + this.balance;
     }
-```
-
-Additionally we also use **getBalance()** method in **Account** class
-
-```
-public double getBalance(){
-	return this.balance;
-}
-```
-
-so that the **SavingsAccount** class can use the **balance** attribute which is a private attribute to do calculation in some other methods like **calculateInterest():**
-
-```
-public void calculateInterest() {
-        double interest = this.getBalance() * this.interestRate;
-        this.deposit(interest);
-        System.out.println("Interest $" + interest + ". New balance: $" + this.getBalance());
-    } 
 ```
